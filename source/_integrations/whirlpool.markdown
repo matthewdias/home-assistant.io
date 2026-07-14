@@ -2,6 +2,7 @@
 title: Whirlpool Appliances
 description: Instructions on how to integrate Whirlpool appliances with Home Assistant.
 ha_category:
+  - Binary sensor
   - Button
   - Climate
   - Hub
@@ -88,7 +89,7 @@ The button platform provides the following functionality:
 
 ### Climate
 
-The `whirlpool` climate platform integrates Whirlpool air conditioning systems into Home Assistant, allowing control of the appliance through the user interface. The current inside temperature is also displayed on the thermostat card.
+The `whirlpool` climate platform integrates Whirlpool air conditioning systems into Home Assistant, allowing control of the appliance through the user interface. The current inside temperature and humidity are also displayed on the thermostat card.
 
 The following actions are also available:
 
@@ -106,7 +107,23 @@ The select platform provides the following entity for refrigerators:
 
 ### Sensor
 
-The `whirlpool` sensor platform integrates Whirlpool Washer and Dryer systems into Home Assistant, allowing views of the machine state, time remaining, and the "wash & go" tank fill status as sensors for each device.
+The `whirlpool` sensor platform provides the following entities.
+
+Washers and dryers:
+
+- **State**: Shows the current machine state.
+- **End time**: Shows when the current cycle is expected to finish.
+
+Washers also have a **Detergent level** sensor for the "wash & go" feature. This sensor is disabled by default.
+
+Ovens:
+
+- **State**: Shows the current state of the oven cavity.
+- **Cook mode**: Shows the active cooking mode for the cavity.
+- **Current temperature**: Shows the current temperature of the oven cavity.
+- **Target temperature**: Shows the target temperature set for the oven cavity.
+
+Ovens with two cavities have separate state, cook mode, current temperature, and target temperature sensors for the upper and lower cavity.
 
 ## Removing the integration
 
